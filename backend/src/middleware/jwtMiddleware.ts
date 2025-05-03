@@ -1,7 +1,15 @@
 import { Request, Response, NextFunction } from "express";
 const jwt = require("jsonwebtoken");
 
-const authenticateToken = (req: Request, res: Response, next: NextFunction) => {
+export interface AuthenticatedRequest extends Request {
+  user?: any;
+}
+
+const authenticateToken = (
+  req: AuthenticatedRequest,
+  res: Response,
+  next: NextFunction
+) => {
   const tokenHeader = req.headers["authorization"];
 
   if (!tokenHeader?.startsWith("Bearer ")) {
@@ -11,7 +19,8 @@ const authenticateToken = (req: Request, res: Response, next: NextFunction) => {
   const token = tokenHeader.split(" ")[1];
 
   try {
-    jwt.verify(token, process.env.JWT_SECRET as string);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
+    req.user = decoded;
     next();
   } catch {
     return res.status(403).json({ error: "Invalid token" });
