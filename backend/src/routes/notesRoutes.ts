@@ -8,9 +8,9 @@ import {
 const express = require("express");
 const router = express.Router();
 
-router.post("/", createNote);
+router.post("/notes", createNote);
 
-router.get("/", readNote);
+router.get("/notes", readNote);
 
 router.put("/:id", updateNote);
 
