@@ -1,7 +1,19 @@
 import { Request, Response } from "express";
+import {
+  createNote,
+  readNote,
+  updateNote,
+  deleteNote,
+} from "../controllers/notesController";
 const express = require("express");
 const router = express.Router();
 
-router.post("/notes", async (req: Request, res: Response) => {});
+router.post("/", createNote);
 
-router.get("/notes", async (req: Request, res: Response) => {});
+router.get("/", readNote);
+
+router.put("/:id", updateNote);
+
+router.delete("/:id", deleteNote);
+
+export default router;
