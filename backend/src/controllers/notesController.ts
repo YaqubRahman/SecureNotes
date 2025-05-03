@@ -4,10 +4,10 @@ import { AuthenticatedRequest } from "../middleware/jwtMiddleware";
 
 let currentID = 0;
 
-const createNotes = (req: AuthenticatedRequest, res: Response) => {
+const createNote = (req: AuthenticatedRequest, res: Response) => {
   const { text } = req.body;
   if (!text) {
-    res.status(400).json({ error: "Text is required!" });
+    return res.status(400).json({ error: "Text is required!" });
   }
 
   const newNote = {
@@ -21,13 +21,39 @@ const createNotes = (req: AuthenticatedRequest, res: Response) => {
   res.status(201).json(newNote);
 };
 
-const readNotes = (req: AuthenticatedRequest, res: Response) => {
+const readNote = (req: AuthenticatedRequest, res: Response) => {
   const userNotes = notes.filter(
-    (notes) => notes.username === req.user?.username
+    (note) => note.username === req.user?.username
   );
   res.json(userNotes);
 };
 
-const updateNotes = (req: AuthenticatedRequest, res: Response) => {};
+const updateNote = (req: AuthenticatedRequest, res: Response) => {
+  const noteID = parseInt(req.params.id);
+  const { text } = req.body;
+  const username = req.user?.username;
 
-const deleteNotes = (req: AuthenticatedRequest, res: Response) => {};
+  const note = notes.find(
+    (note) => note.id === noteID && note.username === username
+  );
+  if (!note) {
+    return res.status(404).json({ error: "Note not found" });
+  }
+
+  note.text = text ?? note.text;
+  res.json(note);
+};
+
+const deleteNote = (req: AuthenticatedRequest, res: Response) => {
+  const noteID = parseInt(req.params.id);
+  const username = req.user?.username;
+
+  const index = notes.findIndex(
+    (note) => note.username === req.user?.username && note.id === noteID
+  );
+
+  const deletedNote = notes.splice(index, 1);
+  res.json({ message: "Note deleted", deleted: deletedNote[0] });
+};
+
+export { createNote, readNote, updateNote, deleteNote };
