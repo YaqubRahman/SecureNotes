@@ -21,7 +21,7 @@ npm install
 ```
 
 4. **Set enviroment variables**
-   Create a .env file in the root of the backend project and add the following:
+   - Create a .env file in the root of the backend project and add the following:
 
 ```env
 JWT_SECRET=this_is_the_secret
