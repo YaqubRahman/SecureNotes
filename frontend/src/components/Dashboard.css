@@ -4,6 +4,11 @@
   text-align: center;
 }
 
+.textbox {
+  height: 30px;
+  margin: 5px;
+}
+
 .notelayout {
   display: inline-block;
   background-color: rgb(255, 229, 173);

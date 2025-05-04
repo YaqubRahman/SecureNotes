@@ -83,6 +83,7 @@ function Dashboard() {
         <div>
           <input
             type="text"
+            className="textbox"
             value={noteText}
             onChange={(e) => setNoteText(e.target.value)}
             placeholder="Write your note..."
@@ -100,7 +101,7 @@ function Dashboard() {
         ) : (
           <ul>
             {notes.map((note) => (
-              <div className="notelayout">
+              <div key={note.id} className="notelayout">
                 <p>{note.text}</p>
                 <div className="timefont">
                   {new Date(note.timestamp).toLocaleTimeString()}
