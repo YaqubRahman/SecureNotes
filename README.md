@@ -8,6 +8,8 @@ git clone <https://github.com/YaqubRahman/SecureNotes.git>
 
 ## More infomation in the frontend and backend folders
 
+## My reasons to why I developed the program in this way, can found in document.txt
+
 ## Note on production-grade improvements if I had more time
 
 - Would use a database for the notes rather than use an in-memory array

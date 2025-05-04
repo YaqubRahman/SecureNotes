@@ -3,7 +3,6 @@ import {
   createNote,
   readNote,
   updateNote,
-  deleteNote,
 } from "../controllers/notesController";
 import authenticateToken from "../middleware/jwtMiddleware";
 const express = require("express");
@@ -14,7 +13,5 @@ router.post("/notes", authenticateToken, createNote);
 router.get("/notes", authenticateToken, readNote);
 
 router.put("/:id", authenticateToken, updateNote);
-
-router.delete("/:id", authenticateToken, deleteNote);
 
 export default router;

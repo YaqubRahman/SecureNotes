@@ -1,0 +1,28 @@
+Folder Structure
+I went for a clear separation of the backend and frontend folders:
+- `/backend`: Contains all server-side code including routes, controllers, middleware, and tests.
+- `/frontend`: Contains all client-side code, organised by React components.
+This structure allows scalability and a clear distinction between front and back-end responsibilities.
+
+Naming Conventions
+- I followed camelCase for variables and functions.
+- PascalCase for React components and interface names
+
+Routing
+- Frontend: React Router DOM is used for client-side routing, including route protection via a `PrivateRoute` wrapper component.
+- Backend: Uses Express to organise routes (/auth, /dashboard/notes) by function and secures them with JWT middleware.
+
+State Management
+- I used React’s built-in `useState` and `useEffect` hooks to manage local UI and data state. 
+- This was fine for the app’s current scope and avoids adding external complexity.
+
+Styling
+- Basic CSS modules were used (e.g., `Dashboard.css`, `Login.css`) for simplicity.
+- Class names follow a readable convention (`.loginbutton`, `.dashboardfont`, etc.).
+
+Testing Tools
+- Backend: I used Jest and Supertest for automated unit/integration testing.
+  - `auth.test.ts`: Validates login success and failure cases.
+  - `note.test.ts`: Tests note creation and listing.
+
+
