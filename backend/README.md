@@ -2,7 +2,7 @@
 
 ## Setup and Installation
 
-1. **Clone the repository**
+1. **Clone the repository if not done so already**
 
 ```bash
 git clone <https://github.com/YaqubRahman/SecureNotes.git>
