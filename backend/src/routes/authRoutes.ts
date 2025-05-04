@@ -11,10 +11,10 @@ router.post("/login", async (req: Request, res: Response) => {
   const passwordValidation = checkPassword(password);
 
   if (!usernameValidation.isValid) {
-    return res.status(400).json({ error: usernameValidation.error });
+    return res.status(401).json({ error: usernameValidation.error });
   }
   if (!passwordValidation.isValid) {
-    return res.status(400).json({ error: passwordValidation.error });
+    return res.status(401).json({ error: passwordValidation.error });
   }
 
   const token = generateAccessToken(username);

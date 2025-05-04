@@ -13,6 +13,7 @@ function Dashboard() {
   >([]);
 
   const getNotes = async () => {
+    const token = localStorage.getItem("token");
     try {
       const response = await fetch(`${BASE_URL}/dashboard/notes`, {
         method: "GET",
@@ -39,6 +40,7 @@ function Dashboard() {
   }, []);
 
   const handleAddButton = async () => {
+    const token = localStorage.getItem("token");
     try {
       const response = await fetch(`${BASE_URL}/dashboard/notes`, {
         method: "POST",

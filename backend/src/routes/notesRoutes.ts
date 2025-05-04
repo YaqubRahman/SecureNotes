@@ -5,15 +5,16 @@ import {
   updateNote,
   deleteNote,
 } from "../controllers/notesController";
+import authenticateToken from "../middleware/jwtMiddleware";
 const express = require("express");
 const router = express.Router();
 
-router.post("/notes", createNote);
+router.post("/notes", authenticateToken, createNote);
 
-router.get("/notes", readNote);
+router.get("/notes", authenticateToken, readNote);
 
-router.put("/:id", updateNote);
+router.put("/:id", authenticateToken, updateNote);
 
-router.delete("/:id", deleteNote);
+router.delete("/:id", authenticateToken, deleteNote);
 
 export default router;

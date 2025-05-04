@@ -1,6 +1,8 @@
 import request from "supertest";
 import { describe, test, expect } from "@jest/globals";
 import app from "../app";
+import dotenv from "dotenv";
+dotenv.config();
 
 describe("Auth Routes", () => {
   it("should succeed with correct credentials", async () => {
