@@ -1,0 +1,25 @@
+.dashboardfont {
+  color: #383d3b;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+.notelayout {
+  display: inline-block;
+  background-color: beige;
+  margin: 10px;
+  padding: 10px;
+}
+
+button.addnotebutton {
+  background-color: cornflowerblue;
+  color: aliceblue;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 50px;
+}
+
+.timefont {
+  color: #727272;
+  font-size: 12px;
+}

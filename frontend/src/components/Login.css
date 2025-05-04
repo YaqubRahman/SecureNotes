@@ -1,0 +1,26 @@
+.loginfont {
+  color: #383d3b;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+.loginbutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+button.button {
+  border-radius: 50px;
+  width: 75px;
+  height: 35px;
+  background-color: black;
+  color: white;
+}
+
+.loginicon {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
