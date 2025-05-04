@@ -24,3 +24,9 @@ button.button {
   height: 15px;
   margin-right: 5px;
 }
+
+.error {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}

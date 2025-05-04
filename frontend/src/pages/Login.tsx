@@ -66,6 +66,7 @@ function Login() {
             Login
           </button>
         </div>
+        {error && <p className="error">Incorrect credentials</p>}
       </div>
     </div>
   );
